@@ -1,0 +1,23 @@
+{
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "explorer.confirmDelete": false,
+    "editor.rulers": [
+        72,
+        80,
+        88
+    ],
+    "scm.defaultViewMode": "tree",
+    "files.associations": {
+        "SConstruct": "python",
+        "*.ys": "tcl",
+        "SConscript": "python"
+    },
+    "window.zoomLevel": 0,
+    "editor.largeFileOptimizations": false,
+    "python.pythonPath": "/bin/python",
+    "rust-client.disableRustup": true
+}
