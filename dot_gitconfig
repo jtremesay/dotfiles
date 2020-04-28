@@ -1,0 +1,9 @@
+[user]
+	name = Jonathan Tremesaygues
+	email = jonathan.tremesaygues@slaanesh.org
+[pull]
+	rebase = true
+[color]
+	ui = auto
+[url "gitea@git.slaanesh.org:"]
+	insteadOf = https://git.slaanesh.org/
