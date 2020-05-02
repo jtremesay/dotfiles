@@ -55,7 +55,7 @@ set number
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['/usr/bin/rls'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
