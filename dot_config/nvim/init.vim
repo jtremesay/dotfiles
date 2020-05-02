@@ -22,6 +22,7 @@ if dein#load_state('/home/killruana/.local/share/dein')
   call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('majutsushi/tagbar')
   " call dein#add('sebastianmarkow/deoplete-rust')
+  call dein#add('preservim/nerdtree')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('Shougo/neosnippet.vim')
@@ -81,3 +82,9 @@ let g:deoplete#enable_at_startup = 1
 " Deoplete rust
 let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/home/killruana/projects/rust/src'
+
+" NERDtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+map <C-n> :NERDTreeToggle<CR>
