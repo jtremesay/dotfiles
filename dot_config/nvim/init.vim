@@ -61,7 +61,8 @@ set softtabstop=4   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 
 set mouse=a         " Enable mouse stroll
-set number          " enable line numbering
+set number          " Enable line numbering
+set colorcolumn=80  " Add a ruler
 
 " LanguageClient
 set hidden
