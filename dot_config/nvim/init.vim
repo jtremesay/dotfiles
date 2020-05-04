@@ -41,13 +41,15 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use actual tab chars in Makefiles.
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
@@ -64,16 +66,42 @@ set mouse=a         " Enable mouse stroll
 set number          " Enable line numbering
 set colorcolumn=80  " Add a ruler
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Deoplete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
-set hidden
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set hidden " Required for operations modifying multiple buffers like rename.
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['/usr/bin/rls'],
     \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neosnippet
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neosnippet#enable_complete_done = 1
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rust.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -83,21 +111,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
-
-" Rustfmt
-let g:rustfmt_autosave = 1
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
-" Deoplete rust
-let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/killruana/projects/rust/src'
-
-" NERDtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-map <C-n> :NERDTreeToggle<CR>
