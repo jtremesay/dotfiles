@@ -21,14 +21,14 @@ if dein#load_state('/home/killruana/.local/share/dein')
     \ })
   call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('majutsushi/tagbar')
-  " call dein#add('sebastianmarkow/deoplete-rust')
   call dein#add('preservim/nerdtree')
+  call dein#add('Shougo/deol.nvim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('rust-lang/rust.vim')
-  " call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
+  call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
   call dein#add('vim-syntastic/syntastic')
 
   " Required:
@@ -48,8 +48,20 @@ syntax enable
 "End dein Scripts-------------------------
 
 " Global settings
-set number
+" Use actual tab chars in Makefiles.
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
+" For everything else, use a tab width of 4 space chars.
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+set shiftwidth=4    " Indents will have a width of 4.
+set softtabstop=4   " Sets the number of columns for a TAB.
+set expandtab       " Expand TABs to spaces.
+
+set mouse=a         " Enable mouse stroll
+set number          " enable line numbering
 
 " LanguageClient
 set hidden
