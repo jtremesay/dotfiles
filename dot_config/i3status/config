@@ -14,7 +14,7 @@ order += "time"
 order += "volume master"
 
 wireless _first_ {
-    format_up = "W: %quality at %essid - %ip"
+    format_up = "W: %ip@%essid - %quality"
     format_down = "W: down"
 }
 
