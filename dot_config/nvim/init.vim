@@ -29,6 +29,8 @@ if dein#load_state('/home/killruana/.local/share/dein')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('rust-lang/rust.vim')
   call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
   call dein#add('vim-syntastic/syntastic')
 
   " Required:
@@ -115,3 +117,8 @@ let g:syntastic_check_on_wq = 0
 " Tagbar settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_theme='simple'
