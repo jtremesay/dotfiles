@@ -2,5 +2,5 @@ configuration {
 	modi: "combi";
 	font: "DejaVu Sans Mono 9";
 	combi-modi: "window,drun,ssh";
-	theme: "/home/killruana/.local/share/rofi/themes/base16-monokai.rasi";
+	theme: "/home/killruana/.local/share/rofi/themes/base16-helios.rasi";
 }
