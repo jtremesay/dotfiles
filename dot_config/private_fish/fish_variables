@@ -40,4 +40,4 @@ SETUVAR fish_pager_color_completion:B3A06D
 SETUVAR fish_pager_color_description:B3A06D
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/killruana/opt/xilinx/Vivado/default/bin\x3a/usr/lib/ccache/bin
+SETUVAR fish_user_paths:/home/killruana/\x2ecargo/bin\x1e/home/killruana/opt/xilinx/Vivado/default/bin\x3a/usr/lib/ccache/bin
