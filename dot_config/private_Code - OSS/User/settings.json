@@ -19,5 +19,5 @@
     "window.zoomLevel": 0,
     "editor.largeFileOptimizations": false,
     "python.pythonPath": "/bin/python",
-    "rust-client.disableRustup": true
+    "workbench.colorTheme": "Base16 Monokai Dark"
 }

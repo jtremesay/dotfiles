@@ -19,6 +19,7 @@ if dein#load_state('/home/killruana/.local/share/dein')
     \ 'rev': 'next',
     \ 'build': 'bash install.sh',
     \ })
+  call dein#add('chriskempson/base16-vim')
   call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('majutsushi/tagbar')
   call dein#add('preservim/nerdtree')
@@ -28,7 +29,7 @@ if dein#load_state('/home/killruana/.local/share/dein')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('rust-lang/rust.vim')
-  call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
+  " call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('vim-syntastic/syntastic')
@@ -69,6 +70,14 @@ set number          " Enable line numbering
 set colorcolumn=80  " Add a ruler
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Base 16
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background = "dark"
+colorscheme base16-monokai
+let base16colorspace=256  " Access colors present in 256 colorspace
+set termguicolors
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Deoplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
@@ -100,6 +109,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " Rust.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
+autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
@@ -121,4 +131,4 @@ nmap <F8> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='simple'
+let g:airline_theme='base16_monokai'
