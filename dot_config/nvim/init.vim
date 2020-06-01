@@ -73,7 +73,7 @@ set colorcolumn=80  " Add a ruler
 " Base 16
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background = "dark"
-colorscheme base16-helios
+colorscheme base16-monokai
 let base16colorspace=256  " Access colors present in 256 colorspace
 set termguicolors
 
@@ -131,4 +131,4 @@ nmap <F8> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='base16_helios'
+let g:airline_theme='base16_monokai'
