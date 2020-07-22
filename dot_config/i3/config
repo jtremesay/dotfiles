@@ -53,7 +53,7 @@ set $right n
 floating_modifier Mod4
 
 # start a browser
-bindsym Mod4+w exec firefox-nightly 
+bindsym Mod4+w exec firefox
 
 # screenshot
 bindsym --release Print exec scrot 'tmp/screenshot_%Y%m%d_%H%M%S.png'
