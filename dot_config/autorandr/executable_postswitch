@@ -1,7 +1,7 @@
-#!/bin/fish
+#!/bin/sh
 
 # Get the current workspace
-set current_workspace (i3-msg -t get_workspaces | jq '.[] |  select(.focused == true).num') 
+current_workspace=$(i3-msg -t get_workspaces | jq '.[] |  select(.focused == true).num') 
 
 # Focus the workspace 10 and move it to the right screen
 i3-msg workspace 10
