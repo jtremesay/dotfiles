@@ -1,27 +1,22 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
+
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans 8
+#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Auto start
-exec dex -ae i3
+font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
+
+# autostart .desktop files
+exec --no-startup-id dex -ae i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -32,100 +27,81 @@ bindsym Ctrl+Shift+l exec i3lock
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
 
-# Terminal
-bindsym Mod4+Return exec kitty
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Adjust screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up r
-set $down s
-set $left t
-set $right n
+# start a terminal
+bindsym $mod+Return exec xterm
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod4
-
-# start a browser
-bindsym Mod4+w exec firefox
-
-# screenshot
-bindsym --release Print exec scrot 'tmp/screenshot_%Y%m%d_%H%M%S.png'
-bindsym --release Shift+Print exec scrot -s 'tmp/screenshot_%Y%m%d_%H%M%S.png'
-bindsym --release Ctrl+Print exec scrot -u 'tmp/screenshot_%Y%m%d_%H%M%S.png'
+# start a web browser
+bindsym $mod+w exec --no-startup-id firefox
 
 # kill focused window
-bindsym Mod4+Shift+b kill
+bindsym $mod+Shift+b kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+i exec rofi -show combi
+bindsym $mod+i exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+bindsym $mod+t focus left
+bindsym $mod+s focus down
+bindsym $mod+r focus up
+bindsym $mod+n focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+bindsym $mod+Shift+t move left
+bindsym $mod+Shift+s move down
+bindsym $mod+Shift+r move up
+bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod4+h split h
+bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym Mod4+v split v
+bindsym $mod+v split v}
 
 # enter fullscreen mode for the focused container
-bindsym Mod4+e fullscreen toggle
+bindsym $mod+e fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+u layout stacking
-bindsym Mod4+y layout tabbed
-bindsym Mod4+p layout toggle split
+bindsym $mod+u layout stacking
+bindsym $mod+y layout tabbed
+bindsym $mod+p layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod4+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym Mod4+d focus child
-
-# move the currently focused window to the scratchpad
-#bindsym Mod4+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-#bindsym Mod4+minus scratchpad show
+#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -141,35 +117,35 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym Mod4+1 workspace number $ws1
-bindsym Mod4+2 workspace number $ws2
-bindsym Mod4+3 workspace number $ws3
-bindsym Mod4+4 workspace number $ws4
-bindsym Mod4+5 workspace number $ws5
-bindsym Mod4+6 workspace number $ws6
-bindsym Mod4+7 workspace number $ws7
-bindsym Mod4+8 workspace number $ws8
-bindsym Mod4+9 workspace number $ws9
-bindsym Mod4+0 workspace number $ws10
+bindsym $mod+quotedbl workspace number $ws1
+bindsym $mod+guillemotleft workspace number $ws2
+bindsym $mod+guillemotright workspace number $ws3
+bindsym $mod+parenleft workspace number $ws4
+bindsym $mod+parenright workspace number $ws5
+bindsym $mod+at workspace number $ws6
+bindsym $mod+plus workspace number $ws7
+bindsym $mod+minus workspace number $ws8
+bindsym $mod+slash workspace number $ws9
+bindsym $mod+asterisk workspace number $ws10
 
 # move focused container to workspace
-bindsym Mod4+Shift+1 move container to workspace number $ws1
-bindsym Mod4+Shift+2 move container to workspace number $ws2
-bindsym Mod4+Shift+3 move container to workspace number $ws3
-bindsym Mod4+Shift+4 move container to workspace number $ws4
-bindsym Mod4+Shift+5 move container to workspace number $ws5
-bindsym Mod4+Shift+6 move container to workspace number $ws6
-bindsym Mod4+Shift+7 move container to workspace number $ws7
-bindsym Mod4+Shift+8 move container to workspace number $ws8
-bindsym Mod4+Shift+9 move container to workspace number $ws9
-bindsym Mod4+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+quotedbl move container to workspace number $ws1
+bindsym $mod+Shift+guillemotleft move container to workspace number $ws2
+bindsym $mod+Shift+guillemotright move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+at move container to workspace number $ws6
+bindsym $mod+Shift+plus move container to workspace number $ws7
+bindsym $mod+Shift+minus move container to workspace number $ws8
+bindsym $mod+Shift+slash move container to workspace number $ws9
+bindsym $mod+Shift+asterisk move container to workspace number $ws10
 
 # reload the configuration file
-bindsym Mod4+Shift+c reload
+bindsym $mod+Shift+x reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+o restart
+bindsym $mod+Shift+o restart
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -179,70 +155,27 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+        bindsym t resize shrink width 10 px or 10 ppt
+        bindsym s resize grow height 10 px or 10 ppt
+        bindsym r resize shrink height 10 px or 10 ppt
+        bindsym n resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or Mod4+r
+        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym Mod4+o mode "default"
+        bindsym $mod+o mode "default"
 }
 
-bindsym Mod4+o mode "resize"
+bindsym $mod+o mode "resize"
 
-## Base16 Helios
-# Author: Alex Meyer (https://github.com/reyemxela)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #1d2021
-set $base01 #383c3e
-set $base02 #53585b
-set $base03 #6f7579
-set $base04 #cdcdcd
-set $base05 #d5d5d5
-set $base06 #dddddd
-set $base07 #e5e5e5
-set $base08 #d72638
-set $base09 #eb8413
-set $base0A #f19d1a
-set $base0B #88b92d
-set $base0C #1ba595
-set $base0D #1e8bac
-set $base0E #be4264
-set $base0F #c85e0d
-
-# Basic bar configuration using the Base16 variables.
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
-    status_command i3status
-
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
-
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
+        status_command i3status
 }
-
-# Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0C
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
