@@ -21,13 +21,13 @@ if dein#load_state('/home/killruana/.local/share/dein')
     \ })
   call dein#add('chriskempson/base16-vim')
   call dein#add('deoplete-plugins/deoplete-jedi')
-  call dein#add('majutsushi/tagbar')
+  " call dein#add('majutsushi/tagbar')
   call dein#add('preservim/nerdtree')
-  call dein#add('Shougo/deol.nvim')
+  " call dein#add('Shougo/deol.nvim')
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/neoinclude.vim')
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('Shougo/neoinclude.vim')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
   call dein#add('rust-lang/rust.vim')
   " call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })  
   call dein#add('vim-airline/vim-airline')
@@ -126,7 +126,7 @@ let g:syntastic_check_on_wq = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Airline

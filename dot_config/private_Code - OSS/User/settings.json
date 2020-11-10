@@ -14,10 +14,24 @@
     "files.associations": {
         "SConstruct": "python",
         "*.ys": "tcl",
-        "SConscript": "python"
+        "SConscript": "python",
+        "Jenkinsfile": "groovy"
     },
     "window.zoomLevel": 0,
     "editor.largeFileOptimizations": false,
     "python.pythonPath": "/bin/python",
-    "workbench.colorTheme": "Base16 Helios Dark"
+    "workbench.colorTheme": "Base16 Helios Dark",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "tabnine.experimentalAutoImports": true,
+    "cSpell.userWords": [
+        "Tremesaygues",
+        "killruana",
+        "slaanesh"
+    ],
+    "git.autofetch": true,
+    "git.confirmSync": false,
 }
