@@ -43,6 +43,9 @@ bindsym $mod+Return exec xterm
 # start a web browser
 bindsym $mod+w exec firefox
 
+# start a file manager
+bindsym $mod+f exec pcmanfm
+
 # kill focused window
 bindsym $mod+Shift+b kill
 
