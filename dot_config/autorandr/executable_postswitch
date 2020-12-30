@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Get the current workspace
-current_workspace=$(i3-msg -t get_workspaces | jq '.[] |  select(.focused == true).num') 
+#current_workspace=$(i3-msg -t get_workspaces | jq '.[] |  select(.focused == true).num') 
 
 # Focus the workspace 10 and move it to the right screen
-i3-msg workspace 10
-i3-msg move workspace to output right
+#i3-msg workspace 10
+#i3-msg move workspace to output right
 
 # Restore the focus
-i3-msg workspace $current_workspace
+#i3-msg workspace $current_workspace
