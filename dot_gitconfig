@@ -7,3 +7,5 @@
 	ui = auto
 [url "gitea@git.slaanesh.org:"]
 	insteadOf = https://git.slaanesh.org/
+[init]
+	defaultBranch = master
