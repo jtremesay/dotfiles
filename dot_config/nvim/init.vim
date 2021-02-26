@@ -29,7 +29,10 @@ call plug#end()
 " Global settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use actual tab chars in Makefiles.
-autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd FileType make set tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+
+" Indent size 2 for YAML
+autocmd FileType yaml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " For everything else, use a tab width of 4 space chars.
 set tabstop=4      " The width of a TAB is set to 4.
